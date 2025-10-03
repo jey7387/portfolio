@@ -1,0 +1,158 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif; /* professional font */
+}
+
+/* Page Background */
+/* Page Background */
+.home-page {
+  background: url("../../assets/background1.jpg") no-repeat center 20px; /* moves image 50px down */
+  background-size: cover;
+  min-height: 100vh;
+  color: #fff;
+}
+
+
+
+
+
+/* Hero Section */
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 50px;
+}
+
+.home-left {
+  flex: 1;
+   margin-top: 95px;
+  padding-left: 100px; /* moves text to the right */
+}
+
+.greeting {
+  font-size: 18px;
+  color: #FFC107;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.home-left h1 {
+  font-size: 48px;
+  font-weight:bold;
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+.home-left .normal-text {
+  font-weight: 400; /* normal weight */
+  font-size: 46px;  /* slightly smaller for balance */
+  display: block;   /* ensures it stays on its own line */
+  margin-top: 10px; /* optional spacing */
+}
+.home-left .highlight {
+   font-weight:bold;
+  color: #FFC107;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+    margin-top: 40px;
+}
+
+.btn {
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+   text-decoration: none; /* remove underline */
+  display: inline-block; /* keeps button shape */
+}
+.hire-btn {
+  background-color: #FFC107;
+  color: #000;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hire-btn:hover {
+  background-color: #e6ac05;
+  transform: scale(1.05); /* small zoom */
+  box-shadow: 0 6px 15px rgba(255, 193, 7, 0.5); /* glowing shadow */
+}
+
+.works-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.works-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Right Side Upload Box */
+.home-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 80px; 
+  padding-top: 80px; 
+}
+
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  margin: 15px 0;
+}
+
+/* Default brand colors */
+.social-icons .github .icon {
+  color: rgb(254, 248, 248); /* GitHub black */
+}
+
+.social-icons .linkedin .icon {
+  color: #338de6; /* LinkedIn blue */
+}
+
+.social-icons .leetcode .icon {
+  color: #f89f1b; /* LeetCode orange */
+}
+
+.social-icons .icon {
+  font-size: 28px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+/* Hover effect (slightly darker shade) */
+.social-icons .github:hover .icon {
+  color:  #dcdcdc;/* darker black */
+  transform: scale(1.2);
+}
+
+.social-icons .linkedin:hover .icon {
+  color: #004182; /* darker LinkedIn blue */
+  transform: scale(1.2);
+}
+
+.social-icons .leetcode:hover .icon {
+  color: #d67a00; /* darker LeetCode orange */
+  transform: scale(1.2);
+}
+
+.social-icons .instagram .icon {
+  color: #E4405F; /* Instagram pink */
+}
+
+.social-icons .instagram:hover .icon {
+  color: #C13584; /* darker shade for hover */
+  transform: scale(1.2);
+}

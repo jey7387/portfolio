@@ -1,0 +1,118 @@
+.project-section {
+  position: relative;
+  padding: 60px 20px;
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 5%; /* move to top */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8rem; /* bigger to cover more area */
+  font-weight: bold;
+  color: rgba(255, 165, 0, 0.08); /* softer overlay */
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #aaa;
+  margin-top: 10px; 
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
+  row-gap: 40px;
+  column-gap: 0px; 
+  justify-items: center; /* center cards horizontally */
+  position: relative;
+  z-index: 1;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* push links to bottom */
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  padding: 25px;
+  width: 100%;
+  min-height: 200px; /* adjust as needed */
+  max-width: 550px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 165, 0, 0.3);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.project-tech {
+  font-size: 0.95rem;
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+.highlight {
+  color:  #f9b234;/* highlighted tech stack */
+  font-weight: lighter;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icon-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color:  #f9b234;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.icon-link:hover {
+  color: #f9b234;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .project-container {
+    grid-template-columns: 1fr;
+  }
+}

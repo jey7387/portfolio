@@ -1,0 +1,118 @@
+.about-page {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 50px;
+}
+.about-right h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px; /* adds space below name */
+}
+
+.about-right p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ddd; /* optional softer color */
+}
+
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 50px;
+}
+
+/* Left Side - Image */
+.about-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+}
+
+.about-img-box {
+  width: 400px;   /* adjust size */
+  height: 400px;  /* adjust size */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right Side - Content */
+.about-right {
+  flex: 1;
+}
+
+.about-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.about-subtitle {
+  font-size: 16px;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.about-info {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.about-info li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.about-info strong {
+  width: 150px;
+  display: inline-block;
+  color: #fff;
+}
+
+/* Projects count */
+.about-projects {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.about-projects .highlight {
+  color: #FFC107;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+/* Download CV Button */
+.download-btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background-color: #FFC107;
+  color: #000;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3); /* initial soft shadow */
+}
+
+.download-btn:hover {
+  background-color: #e6ac05;
+  transform: translateY(-3px) scale(1.05); /* slight lift & zoom */
+  box-shadow: 0 6px 18px rgba(255, 193, 7, 0.6); /* glowing shadow */
+}
+

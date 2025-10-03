@@ -1,0 +1,99 @@
+.skills-section {
+    position: relative;
+  background-color: #000;
+  color: #fff;
+  min-height: 80vh;   /* full screen height */
+  padding: 80px 50px;  /* same padding as about-page */
+  text-align: center;
+   overflow: hidden; /* keeps overlay inside section */
+}
+
+
+.skills-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.skills-subtitle {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 40px;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-bar {
+  width: 100%;
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;       /* vertically center icon and text */
+  justify-content: space-between; /* keeps level on right */
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.skill-info span {
+  display: flex;
+  align-items: center;
+}
+
+.bar {
+  background: #222;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 14px;
+  margin-top: 8px;
+}
+
+.progress {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #FFC107, #FF5722);
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+  transition: width 1.5s ease-in-out;
+}
+
+
+.progress.animate {
+  transition: width 2s ease-in-out;
+}
+.skill-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #f8f7f3; /* golden highlight */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skill-icon:hover {
+  transform: scale(1.2);
+  color: #ff9800; /* brighter hover color */
+}
+.skills-overlay {
+  position: absolute;
+  top: 10%;               /* pushes text slightly down */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 6rem;        /* large background text */
+  font-weight: 900;
+  letter-spacing: 8px;
+  color: rgba(255, 165, 0, 0.12); /* faint orange */
+  z-index: 0;             /* stays behind main content */
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;    /* avoids text wrapping */
+}
+.skills-title,
+.skills-subtitle,
+.skills-container {
+  position: relative;
+  z-index: 1; /* stays above overlay */
+}
