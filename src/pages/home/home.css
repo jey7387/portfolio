@@ -221,21 +221,20 @@
     padding-right: 0;
     padding-top: 30px;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    display: none; /* Hide image on mobile */
   }
   
   .greeting {
-    font-size: 16px;
-    letter-spacing: 2px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
   }
   
   .home-left h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
   
   .home-left .normal-text {
-    font-size: 30px;
+    font-size: 26px;
   }
   
   .button-container {
@@ -270,19 +269,20 @@
   .home-right {
     padding-top: 20px;
     width: 100%;
+    display: none; /* Hide image on small mobile */
   }
   
   .greeting {
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 1px;
   }
   
   .home-left h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
   
   .home-left .normal-text {
-    font-size: 26px;
+    font-size: 22px;
   }
   
   .button-container {
