@@ -1,18 +1,38 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaJava, FaHtml5, FaPython, FaReact, FaNodeJs, FaDatabase, FaGithub, FaCuttlefish } from "react-icons/fa";
+import { FaJava, FaHtml5, FaPython, FaReact, FaNodeJs, FaDatabase, FaGithub, FaCuttlefish, FaGitAlt, FaFigma, FaNetworkWired } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import LeetCode from "../../components/LeetCode/LeetCode";
 import "./skills.css";
 
 const Skill = () => {
-  const skills = [
-  { name: "Java", level: "90%", icon: <FaJava /> },
-  { name: "HTML", level: "95%", icon: <FaHtml5 /> },
-  { name: "Python", level: "70%", icon: <FaPython /> },
-  { name: "MySQL", level: "85%", icon: <FaDatabase /> },
-  { name: "React", level: "40%", icon: <FaReact /> },
-  { name: "C", level: "80%", icon: <FaCuttlefish /> },
-  { name: "Github", level: "80%", icon: <FaGithub /> },
-  { name: "Node", level: "40%", icon: <FaNodeJs /> },
-];
+  const [leetcodeStats, setLeetcodeStats] = useState({ easy: 0, medium: 0, hard: 0 });
+  
+  const skills = {
+    programming: [
+      { name: "Java", icon: <FaJava />, color: "#f89820" },
+      { name: "JavaScript", icon: <FaReact />, color: "#f7df1e" },
+      { name: "Python", icon: <FaPython />, color: "#3776ab" },
+      { name: "C", icon: <FaCuttlefish />, color: "#00599c" },
+    ],
+    webDevelopment: [
+      { name: "React.js", icon: <FaReact />, color: "#61dafb" },
+      { name: "HTML", icon: <FaHtml5 />, color: "#e34c26" },
+      { name: "CSS", icon: <FaHtml5 />, color: "#1572b6" },
+      { name: "Node.js", icon: <FaNodeJs />, color: "#339933" },
+    ],
+    database: [
+      { name: "MySQL", icon: <FaDatabase />, color: "#4479a1" },
+      { name: "Git", icon: <FaGitAlt />, color: "#f05032" },
+      { name: "GitHub", icon: <FaGithub />, color: "#ffffff" },
+      { name: "Figma", icon: <FaFigma />, color: "#f24e1e" },
+    ],
+    leetcode: [
+      { name: "Easy", count: 150, color: "#4ade80" },
+      { name: "Medium", count: 85, color: "#fbbf24" },
+      { name: "Hard", count: 25, color: "#ef4444" },
+      { name: "Total", count: 260, color: "#ffcc66" },
+    ],
+  };
 
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -41,32 +61,84 @@ useEffect(() => {
     <div className="skills-section" ref={sectionRef}>
        <div className="skills-overlay">SKILLS</div> {/* background text layer */}
 
-      <h2 className="skills-title">My Skills</h2>
+      <h2 className="skills-title">Technical Expertise</h2>
       <p className="skills-subtitle">
-  A showcase of my technical expertise and continuous learning journey.
+        Professional skills and technologies I work with across different domains.
 </p>
 
-      <div className="skills-container">
-        {skills.map((skill, index) => (
-          <div key={index} className="skill-bar">
-         <div className="skill-info">
-  <span>
-    <span className="skill-icon">{skill.icon}</span>
-    {skill.name}
-  </span>
-  <span>{skill.level}</span>
-</div>
+      <div className="skills-categories">
+        <div className="skill-category">
+          <h3 className="category-title">
+            <FaJava /> Programming Languages
+          </h3>
+          <div className="skills-badges">
+            {skills.programming.map((skill, index) => (
+              <div key={index} className="skill-badge">
+                <span className="skill-icon" style={{ color: skill.color }}>{skill.icon}</span>
+                <span className="skill-name">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
-            <div className="bar">
-              <div
-                className={`progress ${visible ? "animate" : ""}`}
-                style={{ width: visible ? skill.level : "0%" }}
-              ></div>
+        <div className="skill-category">
+          <h3 className="category-title">
+            <FaReact /> Web Development
+          </h3>
+          <div className="skills-badges">
+            {skills.webDevelopment.map((skill, index) => (
+              <div key={index} className="skill-badge">
+                <span className="skill-icon" style={{ color: skill.color }}>{skill.icon}</span>
+                <span className="skill-name">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="skill-category">
+          <h3 className="category-title">
+            <FaDatabase /> Database & Tools
+          </h3>
+          <div className="skills-badges">
+            {skills.database.map((skill, index) => (
+              <div key={index} className="skill-badge">
+                <span className="skill-icon" style={{ color: skill.color }}>{skill.icon}</span>
+                <span className="skill-name">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="skill-category">
+          <h3 className="category-title">
+            <SiLeetcode /> LeetCode Stats
+          </h3>
+          <div className="leetcode-horizontal-layout">
+            <div className="leetcode-left">
+              <div className="leetcode-component-card">
+                <LeetCode onStatsUpdate={setLeetcodeStats} />
+              </div>
+            </div>
+            <div className="leetcode-right">
+              <div className="leetcode-stats-vertical">
+                <div className="leetcode-stat-badge small">
+                  <span className="leetcode-stat-count easy">{leetcodeStats.easy}</span>
+                  <span className="leetcode-stat-label">Easy</span>
+                </div>
+                <div className="leetcode-stat-badge small">
+                  <span className="leetcode-stat-count medium">{leetcodeStats.medium}</span>
+                  <span className="leetcode-stat-label">Medium</span>
+                </div>
+                <div className="leetcode-stat-badge small">
+                  <span className="leetcode-stat-count hard">{leetcodeStats.hard}</span>
+                  <span className="leetcode-stat-label">Hard</span>
+                </div>
+              </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+  </div>
   );
 };
 

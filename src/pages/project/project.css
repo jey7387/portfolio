@@ -5,16 +5,17 @@
   color: #e0e0e0;
   text-align: center;
   overflow: hidden;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .overlay-text {
   position: absolute;
-  top: 5%; /* move to top */
+  top: -40%; /* move even higher */
   left: 50%;
   transform: translateX(-50%);
-  font-size: 8rem; /* bigger to cover more area */
+  font-size: 6rem; /* consistent size */
   font-weight: bold;
-  color: rgba(255, 165, 0, 0.08); /* softer overlay */
+  color: rgba(255, 165, 0, 0.12); /* consistent opacity */
   pointer-events: none;
   z-index: 0;
   user-select: none;
@@ -30,7 +31,7 @@
 
 .section-subtitle {
   font-size: 1rem;
-  color: #aaa;
+  color: #d1d1d1;
   margin-top: 10px; 
   margin-bottom: 50px;
   position: relative;
@@ -51,63 +52,103 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* push links to bottom */
-  background-color: #1c1c1c;
-  border-radius: 10px;
+  background: #1a1a1a;
+  border-radius: 12px;
   padding: 25px;
   width: 100%;
-  min-height: 200px; /* adjust as needed */
+  height: 380px; /* fixed height for all cards */
   max-width: 550px;
   text-align: left;
   transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255, 165, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .project-title {
-  font-size: 1.5rem;
-  margin: 10px 0;
+  font-size: 1.3rem;
+  margin: 0 0 12px 0;
   color: #fff;
+  line-height: 1.3;
+}
+
+.project-role {
+  font-size: 0.9rem;
+  color: #FFC107;
+  margin: 0 0 15px 0;
 }
 
 .project-description {
-  font-size: 0.95rem;
-  color: #ccc;
-  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #d1d1d1;
+  flex-grow: 1;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+  text-justify: inter-word;
+  overflow-y: auto;
+}
+
+.project-description p {
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.keyword-highlight {
+  color: #FFC107;
+  font-weight: 600;
 }
 
 .project-tech {
-  font-size: 0.95rem;
-  color: #bbb;
+  font-size: 0.9rem;
+  color: #fff;
   margin-bottom: 15px;
+  padding: 8px 12px;
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: 6px;
+  border-left: 3px solid #FFC107;
 }
 
 .highlight {
-  color:  #f9b234;/* highlighted tech stack */
-  font-weight: lighter;
+  color: #fff;
+  font-weight: 600;
 }
 
 .project-links {
   display: flex;
   gap: 15px;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .icon-link {
   display: flex;
   align-items: center;
-  gap: 5px;
-  color:  #f9b234;
+  gap: 8px;
+  color: #000;
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.3s;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background: #f9b234;
 }
 
 .icon-link:hover {
-  color: #f9b234;
+  background: linear-gradient(135deg, #ffcc4d, #f9b234);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249, 178, 52, 0.4);
+  color: #000;
 }
 
 /* Responsive */

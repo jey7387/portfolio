@@ -1,30 +1,35 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import "./contact.css";
 import { FaMapMarkerAlt, FaPhoneAlt, FaPaperPlane, FaLinkedin } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  const form = useRef();
+  const [status, setStatus] = useState("");
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
+    setStatus("Sending...");
 
-    emailjs
-      .sendForm(
-        "your_service_id",      // 🔹 replace with your EmailJS Service ID
-        "your_template_id",     // 🔹 replace with your EmailJS Template ID
-        form.current,
-        "your_public_key"       // 🔹 replace with your EmailJS Public Key
-      )
-      .then(
-        () => {
-          alert("✅ Message sent successfully!");
-          form.current.reset();
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xwvajaap", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
         },
-        (error) => {
-          alert("❌ Something went wrong: " + error.text);
-        }
-      );
+      });
+
+      if (response.ok) {
+        setStatus("✅ Message sent successfully!");
+        e.target.reset();
+        setTimeout(() => setStatus(""), 3000);
+      } else {
+        setStatus("❌ Failed to send message");
+      }
+    } catch (error) {
+      setStatus("❌ Something went wrong");
+    }
   };
 
   return (
@@ -39,7 +44,6 @@ const Contact = () => {
       </div>
 
       <div className="contact-container">
-        {/* Address */}
         <div className="contact-box">
           <div className="contact-icon">
             <FaMapMarkerAlt />
@@ -48,7 +52,6 @@ const Contact = () => {
           <p>tenkasi district</p>
         </div>
 
-        {/* Contact Number */}
         <div className="contact-box">
           <div className="contact-icon">
             <FaPhoneAlt />
@@ -57,7 +60,6 @@ const Contact = () => {
           <p>+91 6380449713</p>
         </div>
 
-        {/* Email */}
         <div className="contact-box">
           <div className="contact-icon">
             <FaPaperPlane />
@@ -66,7 +68,6 @@ const Contact = () => {
           <p>m.jeylaksh7337@gmail.com</p>
         </div>
 
-        {/* LinkedIn */}
         <div className="contact-box">
           <div className="contact-icon">
             <FaLinkedin />
@@ -79,21 +80,26 @@ const Contact = () => {
               rel="noreferrer"
             >
               http://www.linkedin.com/in/jeya-lakshmi-5851522b9
-              
             </a>
           </p>
         </div>
       </div>
 
-      {/* Contact Form Section */}
+      {/* Contact Form */}
       <div className="contact-form-container">
         <h2>Send Me a Message</h2>
-        <form ref={form} onSubmit={sendEmail} className="contact-form">
-          <input type="text" name="user_name" placeholder="Your Name" required />
-          <input type="email" name="user_email" placeholder="Your Email" required />
+
+        <form onSubmit={sendEmail} className="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
           <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+
+          <input type="hidden" name="_subject" value="New Portfolio Message" />
+
           <button type="submit" className="btn-submit">Send Message</button>
         </form>
+
+        {status && <p className="form-status">{status}</p>}
       </div>
     </section>
   );

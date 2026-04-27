@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./about.css";
 import profilePic from "../../assets/profile.png"; // import your fixed image
 
 const About = () => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimate(true);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
   return (
-    <div className="about-page" id="about">
+    <div className="about-page" id="about" key="about-page">
       <div className="about-container">
         {/* Left Side - Fixed Image */}
         <div className="about-left">
@@ -15,13 +23,13 @@ const About = () => {
 
         {/* Right Side - Content */}
         <div className="about-right">
-          <h2 className="about-title">About Me</h2>
-          <p className="about-subtitle">
-           <h3> I'm Jeyalakshmi</h3>
+          <h2 className={`about-title ${animate ? 'animate' : ''}`}>About Me</h2>
+          <p className={`about-subtitle ${animate ? 'animate' : ''}`}>
+           <h3 className={animate ? 'animate' : ''}> I'm Jeyalakshmi</h3>
            
-            Artificial Intelligence and Data Science undergraduate with a strong
+           Pre-final year Artificial Intelligence and Data Science undergraduate with a strong
             passion for web development and UI/UX design. Enthusiastic about
-            integrating generative AI technologies to enhance web applications
+            integrating  AI technologies to enhance web applications
             and user experiences. Actively pursuing knowledge in prompt
             engineering and dedicated to strengthening problem-solving skills
             through data structures and algorithms practice. Motivated to apply
@@ -30,7 +38,7 @@ const About = () => {
           </p>
 
        
-          <a href="/cv.pdf" download className="btn download-btn">
+          <a href="/cv.pdf" download className={`btn download-btn ${animate ? 'animate' : ''}`}>
             Download CV
           </a>
         </div>

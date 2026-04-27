@@ -15,7 +15,7 @@ function Navbar() {
           }
         });
       },
-      { threshold: 0.6 } // at least 60% visible
+      { threshold: 0.3 } // at least 30% visible
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -31,7 +31,7 @@ function Navbar() {
      
         <li><a href="#skills" className={activeSection === "skills" ? "active" : ""}>Skills</a></li>
         <li><a href="#projects" className={activeSection === "projects" ? "active" : ""}>Projects</a></li>
-        <li><a href="#blog" className={activeSection === "blog" ? "active" : ""}>My Blog</a></li>
+        <li><a href="#certifications" className={activeSection === "certifications" ? "active" : ""}>Certifications</a></li>
         <li><a href="#contact" className={activeSection === "contact" ? "active" : ""}>Contact</a></li>
       </ul>
     </nav>

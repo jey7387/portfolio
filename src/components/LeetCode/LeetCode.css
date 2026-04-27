@@ -1,0 +1,40 @@
+.leetcode-box {
+  width: 140px;
+  height: 140px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  margin: 0;
+}
+
+.leetcode-box:hover {
+  transform: none;
+}
+
+.leetcode-box h3 {
+  color: #ffa116;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.leetcode-number {
+  font-size: 40px;
+  font-weight: bold;
+  color:#f9f8f5;
+}
+
+.label {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.loading {
+  color: #777777;
+  font-size: 14px;
+}

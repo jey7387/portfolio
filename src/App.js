@@ -5,7 +5,7 @@ import About from "./pages/about/about";
 import Skills from "./pages/skills/skills";
 import Projects from "./pages/project/project"; // Import Projects page
 import Contact from "./pages/contact/contact"; 
-
+import Certifications from "./pages/certifications/certifications"; 
 
 function App() {
   return (
@@ -30,18 +30,17 @@ function App() {
         <Projects />
       </section>
 
+      {/* Certifications Section */}
+      <section id="certifications" className="section">
+        <Certifications />
+      </section>
+
       <section id="contact" className="section">
         <Contact />
       </section>
 
-      {/* Future Sections */}
-      {/* 
-      <section id="blogs" className="section">
-        <Blogs />
-      </section>
-
       
-      */}
+      
     </div>
   );
 }

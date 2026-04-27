@@ -1,13 +1,13 @@
 .skills-section {
     position: relative;
-  background-color: #000;
-  color: #fff;
-  min-height: 80vh;   /* full screen height */
-  padding: 80px 50px;  /* same padding as about-page */
-  text-align: center;
-   overflow: hidden; /* keeps overlay inside section */
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    padding: 80px 40px;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
-
 
 .skills-title {
   font-size: 2.5rem;
@@ -16,70 +16,389 @@
 }
 
 .skills-subtitle {
-  font-size: 1rem;
-  color: #aaa;
-  margin-bottom: 40px;
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 50px;
+  font-weight: 300;
 }
 
-.skills-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px 60px;
-  max-width: 900px;
-  margin: 0 auto;
+.skills-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.skill-bar {
-  width: 100%;
+.skill-category {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid rgba(255, 193, 7, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
-.skill-info {
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 193, 7, 0.2);
+    border-color: rgba(255, 193, 7, 0.3);
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(255, 204, 102, 0.3);
+    justify-content: center;
+}
+
+.category-title svg {
+    font-size: 1.8rem;
+}
+
+.skills-badges {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.skill-badge {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.skill-badge:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 204, 102, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+.skill-badge .skill-icon {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.skill-badge .skill-icon.fa-github {
+    color: #ffffff;
+    filter: drop-shadow(0 0 8px rgba(255, 204, 102, 0.5));
+    animation: githubGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes githubGlow {
+    0% { 
+        filter: drop-shadow(0 0 8px rgba(255, 204, 102, 0.5));
+        transform: scale(1);
+    }
+    100% { 
+        filter: drop-shadow(0 0 12px rgba(255, 204, 102, 0.8));
+        transform: scale(1.05);
+    }
+}
+
+.skill-badge:hover .skill-icon {
+    transform: scale(1.1);
+}
+
+.skill-badge .skill-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.leetcode-badge {
   display: flex;
-  align-items: center;       /* vertically center icon and text */
-  justify-content: space-between; /* keeps level on right */
-  font-size: 1rem;
-  margin-bottom: 8px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
-.skill-info span {
+.leetcode-count {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.leetcode-badge:hover .leetcode-count {
+  transform: scale(1.1);
+}
+
+.leetcode-badge:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 204, 102, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.leetcode-horizontal-layout {
   display: flex;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.leetcode-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.bar {
-  background: #222;
-  border-radius: 20px;
-  overflow: hidden;
-  height: 14px;
-  margin-top: 8px;
+.leetcode-component-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  min-height: 216px;
+  width: 100%;
+  max-width: 200px;
 }
 
-.progress {
-  height: 100%;
-  border-radius: 20px;
-  background: linear-gradient(90deg, #FFC107, #FF5722);
-  box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
-  transition: width 1.5s ease-in-out;
+.leetcode-component-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 204, 102, 0.3);
+}
+
+.leetcode-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leetcode-live-container {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+  width: 100%;
+}
+
+.leetcode-live-container .LeetCode {
+  width: 100%;
+  max-width: 180px;
+}
+
+.leetcode-stats-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.leetcode-stats-badges {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12px;
+  margin-top: 0;
+}
+
+.leetcode-stat-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  min-height: 80px;
+}
+
+.leetcode-stat-badge.small {
+  padding: 10px 8px;
+  min-height: 60px;
+  border-radius: 8px;
+}
+
+.leetcode-stat-badge:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 204, 102, 0.3);
+}
+
+.leetcode-stat-count {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.leetcode-stat-badge.small .leetcode-stat-count {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.leetcode-stat-count.easy {
+  color: #4ade80;
+}
+
+.leetcode-stat-count.medium {
+  color: #fbbf24;
+}
+
+.leetcode-stat-count.hard {
+  color: #ef4444;
+}
+
+.leetcode-stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #bbb;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.leetcode-stat-badge.small .leetcode-stat-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.6px;
 }
 
 
-.progress.animate {
-  transition: width 2s ease-in-out;
-}
-.skill-icon {
-  font-size: 20px;
-  margin-right: 10px;
-  color: #f8f7f3; /* golden highlight */
-  transition: transform 0.3s ease, color 0.3s ease;
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .skills-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .skills-badges {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
 }
 
-.skill-icon:hover {
-  transform: scale(1.2);
-  color: #ff9800; /* brighter hover color */
+@media screen and (max-width: 768px) {
+    .skills-categories {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .skills-title {
+        font-size: 2.2rem;
+    }
+    
+    .category-title {
+        font-size: 1.2rem;
+        gap: 8px;
+    }
+    
+    .category-title svg {
+        font-size: 1.4rem;
+    }
+    
+    .skills-badges {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 12px;
+    }
+    
+    .skill-badge {
+        padding: 15px 12px;
+        min-height: 90px;
+    }
+    
+    .skill-badge .skill-icon {
+        font-size: 2rem;
+    }
+    
+    .skill-badge .skill-name {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .skills-section {
+        padding: 60px 20px;
+    }
+    
+    .skills-title {
+        font-size: 1.8rem;
+    }
+    
+    .skills-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .skills-categories {
+        gap: 20px;
+    }
+    
+    .skill-category {
+        padding: 20px;
+    }
+    
+    .category-title {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    
+    .skills-badges {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .skill-badge {
+        padding: 12px 10px;
+        min-height: 80px;
+    }
+    
+    .skill-badge .skill-icon {
+        font-size: 1.8rem;
+    }
+    
+    .skill-badge .skill-name {
+        font-size: 0.8rem;
+    }
+    
+    .top-skill-badge {
+        font-size: 0.55rem;
+        padding: 2px 6px;
+    }
 }
 .skills-overlay {
   position: absolute;
-  top: 10%;               /* pushes text slightly down */
+  top: 5%;               /* move higher */
   left: 50%;
   transform: translateX(-50%);
   font-size: 6rem;        /* large background text */
