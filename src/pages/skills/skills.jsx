@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaJava, FaHtml5, FaPython, FaReact, FaNodeJs, FaDatabase, FaGithub, FaCuttlefish, FaGitAlt, FaFigma, FaNetworkWired } from "react-icons/fa";
+import { FaJava, FaHtml5, FaPython, FaReact, FaNodeJs, FaDatabase, FaGithub, FaCuttlefish, FaGitAlt, FaFigma } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import LeetCode from "../../components/LeetCode/LeetCode";
 import "./skills.css";
@@ -34,7 +34,6 @@ const Skill = () => {
     ],
   };
 
-  const [visible, setVisible] = useState(false);
   const sectionRef = useRef(null);
 
 useEffect(() => {
@@ -42,7 +41,6 @@ useEffect(() => {
   const observer = new IntersectionObserver(
     (entries) => {
       if (entries[0].isIntersecting) {
-        setVisible(true);
         observer.disconnect();
       }
     },
