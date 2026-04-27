@@ -191,6 +191,96 @@
   transform: scale(1.2);
 }
 
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .home-page {
+    background-position: center;
+  }
+  
+  .home-container {
+    flex-direction: column;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .home-left {
+    padding-left: 0;
+    margin-top: 50px;
+    order: 2;
+  }
+  
+  .home-right {
+    order: 1;
+    padding-right: 0;
+    padding-top: 50px;
+  }
+  
+  .greeting {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+  
+  .home-left h1 {
+    font-size: 32px;
+  }
+  
+  .home-left .normal-text {
+    font-size: 30px;
+  }
+  
+  .button-container {
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-container {
+    padding: 60px 15px;
+  }
+  
+  .home-left {
+    margin-top: 30px;
+  }
+  
+  .home-right {
+    padding-top: 30px;
+  }
+  
+  .greeting {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  
+  .home-left h1 {
+    font-size: 28px;
+  }
+  
+  .home-left .normal-text {
+    font-size: 26px;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+}
+
 /* Fade In Up Animation */
 @keyframes fadeInUp {
   from {

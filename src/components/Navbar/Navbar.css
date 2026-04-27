@@ -40,3 +40,44 @@
 .nav-links li a.active {
   border-bottom: 2px solid orange;
 }
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+    height: 60px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .nav-links {
+    gap: 15px;
+  }
+  
+  .nav-links li a {
+    font-size: 14px;
+    padding: 3px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0 15px;
+    height: 55px;
+  }
+  
+  .logo {
+    font-size: 16px;
+  }
+  
+  .nav-links {
+    gap: 10px;
+  }
+  
+  .nav-links li a {
+    font-size: 12px;
+    padding: 2px 0;
+  }
+}
