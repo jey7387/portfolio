@@ -1,5 +1,6 @@
 html {
   background-color: #000;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -10,11 +11,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 #root {
   background-color: #000;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Global Mobile Fixes */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
 }
 
 code {

@@ -6,6 +6,8 @@
   text-align: center;
   overflow: hidden;
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .overlay-text {

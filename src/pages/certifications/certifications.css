@@ -7,6 +7,8 @@ html {
   color: white;
   padding: 60px 20px;
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .certifications-grid {
